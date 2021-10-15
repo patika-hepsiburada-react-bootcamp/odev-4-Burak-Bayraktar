@@ -4,7 +4,7 @@
     }
 
     &-header {
-        @apply h-1/5;
+        @apply flex justify-center items-center text-lg h-1/5;
     }
 
     &-body {
@@ -12,6 +12,10 @@
     }
 
     &-footer {
-        @apply h-1/5;
+        @apply flex justify-end items-end mr-[6px] text-xs h-1/5;
+
+        &-link {
+            @apply font-semibold;
+        }
     }
 }

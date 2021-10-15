@@ -4,7 +4,7 @@ import '../style.scss'
 const WeatherCardFooter = () => {
     return (
         <div className="weather-footer">
-            Weather Footer
+            Powered by <a className="weather-footer-link" href="https://graphql-weather-api.herokuapp.com/">WeatherAPI</a>
         </div>
     )
 }

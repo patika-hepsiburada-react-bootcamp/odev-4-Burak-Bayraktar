@@ -1,16 +1,14 @@
 import React from 'react'
 import Select from 'react-select'
 import './style.scss'
+import {cities} from '../../cityData.json'
 
-const CityDropdown = () => {
-    const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
-      ]
+const CityDropdown = ({ setCity }) => {
+    const options = cities?.map(city => ({ value: city.id, label: city.name}))
+
     return (
         <div className="dropdown-wrapper">
-            <Select options={options} />
+            <Select onChange={(event) => setCity({id: event.value, name: event.label})} options={options} />
         </div>
     )
 }

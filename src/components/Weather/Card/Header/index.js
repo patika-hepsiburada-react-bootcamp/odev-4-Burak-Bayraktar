@@ -1,10 +1,11 @@
 import React from 'react'
 import '../style.scss'
 
-const WeatherCardHeader = () => {
+const WeatherCardHeader = ({ name }) => {
+    debugger
     return (
         <div className="weather-header">
-            Weather Header
+            { name }
         </div>
     )
 }
