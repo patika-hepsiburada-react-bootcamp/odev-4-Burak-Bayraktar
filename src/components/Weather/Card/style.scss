@@ -1,0 +1,17 @@
+.weather {
+    &-wrapper {
+        @apply h-2/3 border-2 border-solid border-[#49475b] border-opacity-25 text-center rounded-md;
+    }
+
+    &-header {
+        @apply h-1/5;
+    }
+
+    &-body {
+        @apply h-3/5 flex flex-col border-[1px] border-solid border-[#49475b] border-opacity-25 mx-5;
+    }
+
+    &-footer {
+        @apply h-1/5;
+    }
+}

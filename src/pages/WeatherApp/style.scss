@@ -1,0 +1,10 @@
+.app {
+    &-wrapper {
+        @apply flex flex-col justify-between w-11/12 max-w-[400px] bg-[#adb5bd] h-[80vh] p-4 rounded-md;
+        @apply sm:w-full;
+        @apply md:w-2/4;
+        @apply lg:w-2/5;
+        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+
+    }
+}
