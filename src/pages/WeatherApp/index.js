@@ -8,7 +8,7 @@ import { FETCH_WEATHER } from '../../apolloClient/queries.js'
 const WeatherApp = () => {
 
     const [city, setCity] = useState({ id: "745042", name: "İstanbul"});
-    const { loading, data, error } = useQuery(FETCH_WEATHER, {  variables: { id: city.id } });
+    const { loading, data } = useQuery(FETCH_WEATHER, {  variables: { id: city.id } });
     
     useEffect(() => {
         console.log(city);
