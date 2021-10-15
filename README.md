@@ -1,3 +1,0 @@
-# Exam 4 - Weather APP
-
-Still in progress...
