@@ -1,27 +1,17 @@
-import { useQuery } from '@apollo/client'
-import React, { useEffect, useState } from 'react'
 import CityDropdown from '../../components/CityDropdown'
 import WeatherCard from '../../components/Weather/Card'
 import './style.scss'
-import { cities } from '../../cityData.json'
-import { FETCH_WEATHER } from '../../apolloClient/queries/Weather'
+import Error from '../Error'
+import { useWeather } from '../../contexts/WeatherContext'
 
 const WeatherApp = () => {
+    const { error } = useWeather();
 
-    const [city, setCity] = useState({ id: cities[0].id, name: cities[0].name});
-    const { loading, data, error } = useQuery(FETCH_WEATHER, {  variables: { id: city.id } });
-    
-    useEffect(() => {
-        console.log(city);
-        setCity(city)
-    }, [city])
-
-    return (
+    return error ? <Error error={error} /> :
         <div className="app-wrapper">
-            <CityDropdown city={city} setCity={setCity} />
-            <WeatherCard error={error} data={data} cityName={city.name} loading={loading} />
+            <CityDropdown />
+            <WeatherCard  />
         </div>
-    )
 }
 
 export default WeatherApp

@@ -1,12 +1,10 @@
 import React from 'react'
+import { useWeather } from '../../../../contexts/WeatherContext'
 import '../style.scss'
 
-const WeatherCardHeader = ({ name }) => {
-    return (
-        <div className="weather-header">
-            { name }
-        </div>
-    )
+const WeatherCardHeader = () => {
+    const {city:  { name }} = useWeather();
+    return <div className="weather-header">{ name }</div>
 }
 
-export default React.memo(WeatherCardHeader)
+export default WeatherCardHeader

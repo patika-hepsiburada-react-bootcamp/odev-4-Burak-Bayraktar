@@ -2,7 +2,6 @@ import React from 'react'
 import '../style.scss'
 
 const WeatherCardFooter = () => {
-    console.log("Footer")
     return (
         <div className="weather-footer">
             <div className="weather-footer-line">

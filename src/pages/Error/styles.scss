@@ -1,0 +1,5 @@
+.error {
+    @apply flex flex-col justify-center items-center text-center text-[#f5e1e1] text-xl p-5;
+    @apply md:text-2xl;
+    @apply lg:text-4xl;
+}

@@ -2,8 +2,11 @@ import React from 'react'
 import Select from 'react-select'
 import './style.scss'
 import {cities} from '../../cityData.json'
+import { useWeather } from '../../contexts/WeatherContext'
 
-const CityDropdown = ({ city, setCity }) => {
+const CityDropdown = () => {
+    const { city: {id, name}, setCity } = useWeather();
+    
     const options = cities?.map(c => ({ value: c.id, label: c.name}))
     const customStyles = {
         option: (provided) => ({
@@ -15,9 +18,9 @@ const CityDropdown = ({ city, setCity }) => {
     return (
         <div className="dropdown-wrapper">
             <Select 
-                defaultValue={{value: city.id, label: city.name}}
+                defaultValue={{value: id, label: name}}
                 maxMenuHeight={140}
-                onChange={(event) => setCity({id: event.value, name: event.label})} 
+                onChange={({value, label}) => setCity({id: value, name: label})} 
                 options={options}
                 styles={customStyles}
             />

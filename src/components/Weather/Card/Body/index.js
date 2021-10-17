@@ -1,21 +1,34 @@
-import React from 'react'
 import '../style.scss'
+import logo from '../../../../assets/img/loading.png'
+import { useWeather } from '../../../../contexts/WeatherContext'
+import { FetchWeatherInfo } from './utils';
 
-const WeatherCardBody = ({ data: { weather } }) => {
+const WeatherCardBody = () => {
+
+    const {data, loading} = useWeather();
     const iconLink = "http://openweathermap.org/img/w"
-    const date = new Date(weather?.timestamp * 1000)
-    const currentDate = date.toLocaleString('en-US', { month: "long", year: "numeric", day: "numeric", weekday: 'long'});
-    const weatherForecast = `${weather?.summary.title}`;
-    const kelvinToCelcius = (weather?.temperature.actual - 273.15).toFixed(1);
 
-    return <>
-            <p className="icon" >
-                <img alt="icon" src={`${iconLink}/${weather?.summary.icon}.png`} />
-            </p>
-            <p>{ currentDate }</p>
-            <p>{ weatherForecast }</p>
-            <p>{ kelvinToCelcius } &deg;C</p>
-        </>
+    if (loading) {
+        return (
+        <WeatherCardBodyWrapper>
+            <div className="loading-wrapper"><img className="loading-icon" alt="loading" src={logo} /></div>
+        </WeatherCardBodyWrapper>
+        ) 
+    }
+
+    const { date, degree, weatherForecast, icon} = FetchWeatherInfo(data);
+    
+    return  <WeatherCardBodyWrapper>
+                <p className="icon" >
+                    <img alt="icon" src={`${iconLink}/${icon}.png`} />
+                </p>
+                <p>{ date }</p>
+                <p>{ weatherForecast }</p>
+                <p>{ degree } &deg;C</p>
+            </WeatherCardBodyWrapper>
 }
 
-export default WeatherCardBody
+// created this component to make every possible renderer has height of 60%
+const WeatherCardBodyWrapper = ({ children }) => <div className="weather-body">{ children }</div>
+
+export default WeatherCardBody;
