@@ -8,11 +8,15 @@
     }
 
     &-body {
-        @apply h-3/5 flex flex-col border-[1px] border-solid border-[#49475b] border-opacity-25 mx-5;
+        @apply h-[60%] bg-[#a8b0b8] flex flex-col border-[1px] border-solid border-[#49475b] border-opacity-25 mx-5;
+
+        .icon {
+            @apply flex justify-center items-center h-1/2;
+        }
     }
 
     &-footer {
-        @apply flex justify-end items-end mr-[6px] text-xs h-1/5;
+        @apply flex justify-end items-end flex-col mr-[6px] text-xs h-1/5;
 
         &-link {
             @apply font-semibold;

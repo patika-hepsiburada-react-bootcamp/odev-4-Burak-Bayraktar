@@ -7,7 +7,13 @@
         box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 
         .loading {
-            @apply w-full h-full text-center flex justify-center items-center mb-10;
+            &-wrapper {
+                @apply w-full h-full text-center flex justify-center items-center mb-10;
+            }
+
+            &-icon {
+                @apply w-10;
+            }
         } 
     }
 }

@@ -3,12 +3,24 @@ import Select from 'react-select'
 import './style.scss'
 import {cities} from '../../cityData.json'
 
-const CityDropdown = ({ setCity }) => {
-    const options = cities?.map(city => ({ value: city.id, label: city.name}))
-
+const CityDropdown = ({ city, setCity }) => {
+    const options = cities?.map(c => ({ value: c.id, label: c.name}))
+    const customStyles = {
+        option: (provided) => ({
+          ...provided,
+          padding: 7,
+          innerHeight:5
+        }),
+      }
     return (
         <div className="dropdown-wrapper">
-            <Select onChange={(event) => setCity({id: event.value, name: event.label})} options={options} />
+            <Select 
+                defaultValue={{value: city.id, label: city.name}}
+                maxMenuHeight={140}
+                onChange={(event) => setCity({id: event.value, name: event.label})} 
+                options={options}
+                styles={customStyles}
+            />
         </div>
     )
 }
